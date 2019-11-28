@@ -1,0 +1,41 @@
+"name": "ramaverk1/weather-module",
+    "type": "library",
+    "description": "A weather module for the anax framework.",
+    "keywords": ["boilerplate", "framework", "mvc", "micro", "education"],
+    "homepage": "https://dbwebb.se/anax",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Martin Ledel",
+            "email": "martinledel@gmail.com",
+            "homepage": "https://dbwebb.se",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/MartinLedel/ramverk1-module/issues"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anax\\": "src/"
+        }
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.2",
+        "anax/commons": "^2.0.0@beta"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7",
+        "anax/anax-lite": "^1.0.24",
+        "anax/view": "^2.0.0@alpha",
+        "anax/page": "^2.0.0@alpha"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:MartinLedel/ramverk1-module.git"
+        }
+    ]
+}
