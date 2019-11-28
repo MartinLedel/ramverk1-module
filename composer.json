@@ -1,4 +1,5 @@
-"name": "ramaverk1/weather-module",
+{
+    "name": "ramaverk1/weather-module",
     "type": "library",
     "description": "A weather module for the anax framework.",
     "keywords": ["boilerplate", "framework", "mvc", "micro", "education"],
