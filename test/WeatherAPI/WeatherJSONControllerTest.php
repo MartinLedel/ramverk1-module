@@ -9,23 +9,33 @@ use PHPUnit\Framework\TestCase;
  */
 class WeatherJSONControllerTest extends TestCase
 {
+    private $controller;
+
     /**
-     * Test the route "index".
+     * Setup before each testcase
      */
-    public function testIndexAction()
+    protected function setUp()
     {
         global $di;
         // Setup di
         $di = new DIFactoryConfig();
         $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-        // Use a different cache dir for unit test
-        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
+        $di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
+
+        $this->di = $di;
         // Setup the controller
-        $controller = new WeatherJSONController();
-        $controller->setDI($di);
-        $controller->initialize();
+        $this->controller = new WeatherJSONController();
+        $this->controller->setDI($this->di);
+        $this->controller->initialize();
+    }
+
+    /**
+     * Test the route "index".
+     */
+    public function testIndexAction()
+    {
         // Test the controller action
-        $res = $controller->IndexAction();
+        $res = $this->controller->IndexAction();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
     }
@@ -34,35 +44,25 @@ class WeatherJSONControllerTest extends TestCase
      */
     public function testFetchActionGet()
     {
-        global $di;
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-        // Use a different cache dir for unit test
-        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
-        // Setup the controller
-        $controller = new WeatherJSONController();
-        $controller->setDI($di);
-        $controller->initialize();
-        $request = $di->get("request");
+        $request = $this->di->get("request");
         // Test the controller action
         $request->setGet("searchReq", "Karlskrona");
         $request->setGet("date", "0");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertIsArray($res);
         $this->assertArrayHasKey("address", $res[0]);
         $this->assertArrayHasKey("weather_data", $res[0]);
 
         $request->setGet("searchReq", "8.8.8.8");
         $request->setGet("date", "0");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertIsArray($res);
         $this->assertArrayHasKey("address", $res[0]);
         $this->assertArrayHasKey("weather_data", $res[0]);
 
         $request->setGet("searchReq", "8.8.8.8");
         $request->setGet("date", "30");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertIsArray($res);
         $this->assertArrayHasKey("address", $res[0]);
         $this->assertArrayHasKey("weather_data", $res[0]);
@@ -70,33 +70,23 @@ class WeatherJSONControllerTest extends TestCase
 
     public function testFetchFailActionGet()
     {
-        global $di;
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-        // Use a different cache dir for unit test
-        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
-        // Setup the controller
-        $controller = new WeatherJSONController();
-        $controller->setDI($di);
-        $controller->initialize();
-        $request = $di->get("request");
+        $request = $this->di->get("request");
         // Test the controller action
         $request->setGet("searchReq", "");
         $request->setGet("date", "0");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertIsArray($res);
         $this->assertArrayHasKey("address", $res[0]);
 
         $request->setGet("searchReq", "Kalle");
         $request->setGet("date", "0");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertIsArray($res);
         $this->assertArrayHasKey("address", $res[0]);
 
         $request->setGet("searchReq", "");
         $request->setGet("date", "30");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertIsArray($res);
         $this->assertArrayHasKey("address", $res[0]);
     }

@@ -9,23 +9,41 @@ use PHPUnit\Framework\TestCase;
  */
 class WeatherControllerTest extends TestCase
 {
+    protected $controller;
+
     /**
-     * Test the route "index".
+     * Setup before each testcase
      */
-    public function testIndexAction()
+    protected function setUp()
     {
         global $di;
         // Setup di
         $di = new DIFactoryConfig();
         $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-        // Use a different cache dir for unit test
-        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
+        $di->loadServices(ANAX_INSTALL_PATH . "/test/config/di");
+
+        $this->di = $di;
         // Setup the controller
-        $controller = new WeatherController();
-        $controller->setDI($di);
-        $controller->initialize();
+        $this->controller = new WeatherController();
+        $this->controller->setDI($this->di);
+        $this->controller->initialize();
+    }
+
+    /**
+     * Tear down after each testcase
+     */
+    protected function tearDown()
+    {
+        $this->di->get("session")->destroy();
+    }
+
+    /**
+     * Test the route "index".
+     */
+    public function testIndexAction()
+    {
         // Test the controller action
-        $res = $controller->IndexAction();
+        $res = $this->controller->IndexAction();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
     }
@@ -35,21 +53,11 @@ class WeatherControllerTest extends TestCase
      */
     public function testweatherDataAction()
     {
-        global $di;
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-        // Use a different cache dir for unit test
-        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
-        // Setup the controller
-        $controller = new WeatherController();
-        $controller->setDI($di);
-        $controller->initialize();
-        $request = $di->get("request");
+        $request = $this->di->get("request");
         // Test the controller action
         $request->setGet("searchReq", "Karlskrona");
         $request->setGet("date", "0");
-        $res = $controller->weatherDataAction();
+        $res = $this->controller->weatherDataAction();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
     }
@@ -59,72 +67,52 @@ class WeatherControllerTest extends TestCase
      */
     public function testFetchActionGet()
     {
-        global $di;
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-        // Use a different cache dir for unit test
-        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
-        // Setup the controller
-        $controller = new WeatherController();
-        $controller->setDI($di);
-        $controller->initialize();
-        $request = $di->get("request");
+        $request = $this->di->get("request");
         // Test the controller action
         $request->setGet("searchReq", "Karlskrona");
         $request->setGet("date", "0");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
 
         $request->setGet("searchReq", "8.8.8.8");
         $request->setGet("date", "0");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
 
         $request->setGet("searchReq", "8.8.8.8");
         $request->setGet("date", "30");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
     }
 
     public function testFetchFailActionGet()
     {
-        global $di;
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-        // Use a different cache dir for unit test
-        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
-        // Setup the controller
-        $controller = new WeatherController();
-        $controller->setDI($di);
-        $controller->initialize();
-        $request = $di->get("request");
+        $request = $this->di->get("request");
         // Test the controller action
         $request->setGet("searchReq", "");
         $request->setGet("date", "0");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
 
         $request->setGet("searchReq", "asdsafasfgafad");
         $request->setGet("date", "0");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
 
         $request->setGet("searchReq", "8.8.8.8.8.8.8.8.8.8");
         $request->setGet("date", "0");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
 
         $request->setGet("searchReq", "8.8.8.8.8.8.8.8.8.8");
         $request->setGet("date", "30");
-        $res = $controller->fetchActionGet();
+        $res = $this->controller->fetchActionGet();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
     }
