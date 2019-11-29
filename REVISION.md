@@ -3,6 +3,13 @@ Revision history
 
 
 
+v1.0.3 (2019-11-29)
+---------------------------------
+
+* Fixed so phpunit works on the module. Also fixed so my tests was green.
+
+
+
 v1.0.2 (2019-11-28)
 ---------------------------------
 
