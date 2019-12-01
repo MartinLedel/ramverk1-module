@@ -6,28 +6,39 @@ Install as Anax module
 
 This is how you install the module into an existing Anax installation.
 
-Install using composer.
+1. Install using composer.
 
 ```
 composer require martinl/weather-module
 ```
 
-Copy the needed configuration and setup the module as a route handler for the routes `weather-api` and `weather-api-json`.
+2. Copy the needed configuration and setup the module as a route handler for the routes `weather-api` and `weather-api-json`.
 
 ```
 rsync -av vendor/martinl/weather-module/config ./
 ```
 
-Now copy the API documentation for the route `weather-text`.
+3. Now copy the API documentation for the route `weather-text`.
 
 ```
 rsync -av vendor/martinl/weather-module/content/weather-text.md content/weather-text.md
 ```
 
-Now copy the views.
+4. Now copy the views.
 
 ```
-rsync -av vendor/martinl/weather-module/views/ views/
+rsync -av vendor/martinl/weather-module/view/ view/
+```
+
+5. Create config/api_keys.php that will contain all api keys, like so,
+
+```
+<?php
+
+return ["key1" => "xxx",
+"key2" => "xxx",
+"key3" => "xxx"
+];
 ```
 
 Install using scaffold postprocessing file

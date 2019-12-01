@@ -9,4 +9,4 @@ rsync -av vendor/martinl/weather-module/config ./
 rsync -av vendor/martinl/weather-module/content/weather-text.md content/weather-text.md
 
 # Now copy the views.
-rsync -av vendor/martinl/weather-module/views/ views/
+rsync -av vendor/martinl/weather-module/view/ view/
