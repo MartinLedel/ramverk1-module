@@ -3,10 +3,19 @@ Revision history
 
 
 
+v1.0.7 (2019-12-1)
+---------------------------------
+
+* Updated README, REVISION and .anax scaffolding.
+
+
+
 v1.0.6 (2019-12-1)
 ---------------------------------
 
 * Tried fixing tagging versions.
+
+
 
 v1.0.5 (2019-12-1)
 ---------------------------------

@@ -18,19 +18,25 @@ composer require martinl/weather-module
 rsync -av vendor/martinl/weather-module/config ./
 ```
 
-3. Now copy the API documentation for the route `weather-text`.
+3. Copy the Controllers and Models required.
 
 ```
-rsync -av vendor/martinl/weather-module/content/weather-text.md content/weather-text.md
+rsync -av vendor/martinl/weather-module/src ./
 ```
 
 4. Now copy the views.
 
 ```
-rsync -av vendor/martinl/weather-module/view/ view/
+rsync -av vendor/martinl/weather-module/view ./
 ```
 
-5. Create config/api_keys.php that will contain all api keys, like so,
+5. Now copy the API documentation for the route `weather-text`.
+
+```
+rsync -av vendor/martinl/weather-module/content/weather-text.md content/weather-text.md
+```
+
+6. Create config/api_keys.php that will contain all api keys, like so,
 
 ```
 <?php
