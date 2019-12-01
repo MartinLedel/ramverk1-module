@@ -15,19 +15,19 @@ composer require martinl/weather-module
 2. Copy the needed configuration and setup the module as a route handler for the routes `weather-api` and `weather-api-json`.
 
 ```
-rsync -av vendor/martinl/weather-module/config ./
+rsync -av vendor/martinl/weather-module/config/ ./config/
 ```
 
 3. Copy the Controllers and Models required.
 
 ```
-rsync -av vendor/martinl/weather-module/src ./
+rsync -av vendor/martinl/weather-module/src/ ./src/
 ```
 
 4. Now copy the views.
 
 ```
-rsync -av vendor/martinl/weather-module/view ./
+rsync -av vendor/martinl/weather-module/view/ ./view/
 ```
 
 5. Now copy the API documentation for the route `weather-text`.
