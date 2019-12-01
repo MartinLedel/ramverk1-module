@@ -3,7 +3,7 @@ Revision history
 
 
 
-v1.0.4 (2019-12-1)
+v1.0.5 (2019-12-1)
 ---------------------------------
 
 * Fixed README instructions.
