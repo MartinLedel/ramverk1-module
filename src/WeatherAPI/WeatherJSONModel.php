@@ -7,7 +7,7 @@ namespace Anax\WeatherAPI;
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-class weatherJSONModel
+class WeatherJSONModel
 {
     protected $apikey1;
     protected $apikey2;

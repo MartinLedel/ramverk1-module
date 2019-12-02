@@ -7,7 +7,7 @@ namespace Anax\WeatherAPI;
  *
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
-class weatherModel
+class WeatherModel
 {
     public $model;
 
@@ -16,7 +16,7 @@ class weatherModel
     */
     public function __construct()
     {
-        $this->model = new weatherJSONModel();
+        $this->model = new WeatherJSONModel();
     }
 
     /*

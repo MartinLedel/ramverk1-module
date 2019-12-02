@@ -12,7 +12,7 @@ This is how you install the module into an existing Anax installation.
 composer require martinl/weather-module
 ```
 
-2. Copy the needed configuration and setup the module as a route handler for the routes `weather-api` and `weather-api-json`.
+2. Copy the needed configuration and setup the module as a route handler for the routes `weather-api` and `weather2-api` for the REST api.
 
 ```
 rsync -av vendor/martinl/weather-module/config/ ./config/
