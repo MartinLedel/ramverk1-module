@@ -4,9 +4,10 @@ Anax weather-module server
 [![Build Status](https://travis-ci.org/MartinLedel/ramverk1.svg?branch=master)](https://travis-ci.org/MartinLedel/ramverk1)
 [![CircleCI](https://circleci.com/gh/MartinLedel/ramverk1-module.svg?style=svg)](https://circleci.com/gh/MartinLedel/ramverk1-module)
 
-[![Build Status](https://scrutinizer-ci.com/g/canax/remserver/badges/build.png?b=master)](https://scrutinizer-ci.com/g/canax/remserver/build-status/master)
+[![Build Status](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/badges/build.png?b=master)](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/?branch=master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
 
 Install as Anax module
 ------------------------------------
