@@ -14,11 +14,11 @@ build:
         after:
             - "composer require --dev phpunit/phpunit"
 
-      nodes:
-          coverage:
-              tests:
-                  override:
-                      - command: "vendor/bin/phpunit --configuration .phpunit.xml"
-                      coverage:
-                          file: "build/coverage.clover"
-                          format: "php-clover"
+    nodes:
+        coverage:
+            tests:
+                override:
+                    - command: "vendor/bin/phpunit --configuration .phpunit.xml"
+                    coverage:
+                        file: "build/coverage.clover"
+                        format: "php-clover"
