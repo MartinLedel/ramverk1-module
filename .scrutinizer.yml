@@ -1,27 +1,21 @@
 imports:
-  - php
+    - php
 
 filter:
-  excluded_paths: [vendor/*, test/*]
+    excluded_paths: [vendor/*, test/*]
 
 build:
-  environment:
-    php: 7.2
-  dependencies:
-    before:
-      - command: "mkdir build"
-    after:
-      - "composer require --dev phpunit/phpunit"
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
 
-  nodes:
-    analysis:
-      tests:
-        override:
-          - php-scrutinizer-run
-    coverage:
-      tests:
-        override:
-        - command: "vendor/bin/phpunit --configuration .phpunit.xml"
-          coverage:
-            file: "build/coverage.clover"
-            format: "php-clover"
+        tests-and-coverage:
+            tests:
+                override:
+                    -
+                        command: "make phpunit"
+                        coverage:
+                            file: "build/coverage.clover"
+                            format: "php-clover"
