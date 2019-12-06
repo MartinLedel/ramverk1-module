@@ -83,11 +83,5 @@ class WeatherJSONControllerTest extends TestCase
         $res = $this->controller->fetchActionGet();
         $this->assertIsArray($res);
         $this->assertArrayHasKey("address", $res[0]);
-
-        $request->setGet("searchReq", "");
-        $request->setGet("date", "30");
-        $res = $this->controller->fetchActionGet();
-        $this->assertIsArray($res);
-        $this->assertArrayHasKey("address", $res[0]);
     }
 }

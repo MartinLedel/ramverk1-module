@@ -35,7 +35,6 @@ class WeatherController implements ContainerInjectableInterface
     public function indexAction() : object
     {
         $page = $this->di->get("page");
-        $session = $this->di->get("session");
         $weather = $this->di->get("weather");
         $message = $weather->welcomeMsg();
         $title = "Väder API";
@@ -51,7 +50,6 @@ class WeatherController implements ContainerInjectableInterface
     }
     public function weatherDataAction() : object
     {
-        $request = $this->di->get("request");
         $page = $this->di->get("page");
         $session = $this->di->get("session");
         $weather = $this->di->get("weather");

@@ -109,11 +109,5 @@ class WeatherControllerTest extends TestCase
         $res = $this->controller->fetchActionGet();
         $this->assertInstanceOf("Anax\Response\Response", $res);
         $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
-
-        $request->setGet("searchReq", "8.8.8.8.8.8.8.8.8.8");
-        $request->setGet("date", "30");
-        $res = $this->controller->fetchActionGet();
-        $this->assertInstanceOf("Anax\Response\Response", $res);
-        $this->assertInstanceOf("Anax\Response\ResponseUtility", $res);
     }
 }
