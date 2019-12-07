@@ -4,8 +4,8 @@ APIet tar emot två argument: `searchReq` och `date`.
 
 För att hämta väder data måste något av dessa skickas med:
 
-* Ort, Stad, Land
-* IP adress, IPv4
+*   Ort, Stad, Land
+*   IP adress, IPv4
 
 ```
 weather2-api/fetch?searchReq=Karlskrona&date=0&fetch=fetch
@@ -13,7 +13,7 @@ weather2-api/fetch?searchReq=Karlskrona&date=0&fetch=fetch
 
 Tillbaka ska du få ett objekt med dagens väder och vädret 7 dagar framåt:
 
-```
+```json
 {
     "address": {
         "lat": "56.1621073",
@@ -138,7 +138,7 @@ weather2-api/fetch?searchReq=Karlskrona&date=30&fetch=fetch
 
 Tillbaka ska du få ett objekt med vädret dem 30 föregående dagarna:
 
-```
+```json
 {
     "address": {
         "lat": "56.1621073",
@@ -240,7 +240,7 @@ Tillbaka ska du få ett objekt med vädret dem 30 föregående dagarna:
                             "apparentTemperatureMaxTime": 1574595120
                         },
                         {
-                            osvosvosvosv
+                            "osv": "osv",
                         },
                     ]
                 },

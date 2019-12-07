@@ -61,7 +61,7 @@ Install using scaffold postprocessing file
 
 The module supports a postprocessing installation script, to be used with Anax scaffolding. The script executes the default installation, as outlined above.
 
-```text
+```bash
 bash vendor/martinl/weather-module/.anax/scaffold/postprocess.d/710_weather_module.bash
 ```
 
@@ -74,7 +74,7 @@ You need a Anax installation, before you can use this module. You can create a s
 
 Scaffold a sample Anax installation `anax-site-develop` into the directory `a/`.
 
-```
+```bash
 $ anax create a ramverk1-me-v2
 $ cd a
 ```
