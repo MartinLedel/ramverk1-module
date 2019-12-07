@@ -15,37 +15,37 @@ Install as Anax module
 
 This is how you install the module into an existing Anax installation.
 
-1. Install using composer.
+1.  Install using composer.
 
 ```
 composer require martinl/weather-module
 ```
 
-2. Copy the needed configuration and setup the module as a route handler for the routes `weather-api` and `weather2-api` for the REST api.
+2.  Copy the needed configuration and setup the module as a route handler for the routes `weather-api` and `weather2-api` for the REST api.
 
 ```
 rsync -av vendor/martinl/weather-module/config/ ./config/
 ```
 
-3. Copy the Controllers and Models required.
+3.  Copy the Controllers and Models required.
 
 ```
 rsync -av vendor/martinl/weather-module/src/ ./src/
 ```
 
-4. Now copy the views.
+4.  Now copy the views.
 
 ```
 rsync -av vendor/martinl/weather-module/view/ ./view/
 ```
 
-5. Now copy the API documentation for the route `weather-text`.
+5.  Now copy the API documentation for the route `weather-text`.
 
 ```
 rsync -av vendor/martinl/weather-module/content/weather-text.md content/weather-text.md
 ```
 
-6. Create config/api_keys.php that will contain all api keys, like so,
+6.  Create config/api_keys.php that will contain all api keys, like so,
 
 ```
 <?php
@@ -67,8 +67,6 @@ bash vendor/martinl/weather-module/.anax/scaffold/postprocess.d/710_weather_modu
 
 The postprocessing script should be run after the `composer require` is done.
 
-
-
 Install and setup Anax
 ------------------------------------
 
@@ -83,23 +81,17 @@ $ cd a
 
 Point your webserver to `a/htdocs` and Anax should display a Home-page.
 
-
-
 Dependency
 ------------------
 
 This is a Anax modulen and primarly intended to be used together with the Anax framework.
-
-
 
 License
 ------------------
 
 This software carries a MIT license. See [LICENSE.txt](LICENSE.txt) for details.
 
-
-
-```
+```text
  .  
 ..:  Copyright (c) Martin Ledel
 ```
