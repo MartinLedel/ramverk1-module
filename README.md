@@ -17,37 +17,37 @@ This is how you install the module into an existing Anax installation.
 
 1.  Install using composer.
 
-```
+```bash
 composer require martinl/weather-module
 ```
 
 2.  Copy the needed configuration and setup the module as a route handler for the routes `weather-api` and `weather2-api` for the REST api.
 
-```
+```bash
 rsync -av vendor/martinl/weather-module/config/ ./config/
 ```
 
 3.  Copy the Controllers and Models required.
 
-```
+```bash
 rsync -av vendor/martinl/weather-module/src/ ./src/
 ```
 
 4.  Now copy the views.
 
-```
+```bash
 rsync -av vendor/martinl/weather-module/view/ ./view/
 ```
 
 5.  Now copy the API documentation for the route `weather-text`.
 
-```
+```bash
 rsync -av vendor/martinl/weather-module/content/weather-text.md content/weather-text.md
 ```
 
 6.  Create config/api_keys.php that will contain all api keys, like so,
 
-```
+```text
 <?php
 
 return ["key1" => "xxx",
@@ -75,8 +75,8 @@ You need a Anax installation, before you can use this module. You can create a s
 Scaffold a sample Anax installation `anax-site-develop` into the directory `a/`.
 
 ```bash
-$ anax create a ramverk1-me-v2
-$ cd a
+anax create a ramverk1-me-v2
+cd a
 ```
 
 Point your webserver to `a/htdocs` and Anax should display a Home-page.

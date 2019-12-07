@@ -7,7 +7,7 @@ För att hämta väder data måste något av dessa skickas med:
 *   Ort, Stad, Land
 *   IP adress, IPv4
 
-```
+```text
 weather2-api/fetch?searchReq=Karlskrona&date=0&fetch=fetch
 ```
 
@@ -115,7 +115,7 @@ Tillbaka ska du få ett objekt med dagens väder och vädret 7 dagar framåt:
                             "apparentTemperatureMaxTime": 1574595120
                         },
                         {
-                            osvosvosvosv
+                            "osv" : "osv"
                         },
                     ]
                 },
@@ -132,7 +132,7 @@ Objektet innehåller `address` där adressn finns,
 
 Går också att få föregående dagar.
 
-```
+```text
 weather2-api/fetch?searchReq=Karlskrona&date=30&fetch=fetch
 ```
 
