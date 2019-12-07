@@ -36,12 +36,12 @@ class WeatherJSONModel
         $json = [];
 
         // Initialize CURL:
-        $curlHeader = curl_init("https://nominatim.openstreetmap.org/?format=json&addressdetails=1&q={$adrsurl}&limit=1&email=email@live.se");
-        curl_setopt($curlHeader, CURLOPT_RETURNTRANSFER, true);
+        $ch = curl_init("https://nominatim.openstreetmap.org/?format=json&addressdetails=1&q={$adrsurl}&limit=1&email=email@live.se");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         // Store the data:
-        $json = curl_exec($curlHeader);
-        curl_close($curlHeader);
+        $json = curl_exec($ch);
+        curl_close($ch);
 
         // Decode JSON response:
         $apiResult = json_decode($json, true);
@@ -69,12 +69,12 @@ class WeatherJSONModel
         $json = [];
 
         // Initialize CURL:
-        $curlHeader = curl_init('http://api.ipstack.com/'. $ipAdress . '?access_key=' . $this->apikey1 . '');
-        curl_setopt($curlHeader, CURLOPT_RETURNTRANSFER, true);
+        $ch = curl_init('http://api.ipstack.com/'. $ipAdress . '?access_key=' . $this->apikey1 . '');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         // Store the data:
-        $json = curl_exec($curlHeader);
-        curl_close($curlHeader);
+        $json = curl_exec($ch);
+        curl_close($ch);
 
         // Decode JSON response:
         $apiResult = json_decode($json, true);
@@ -97,12 +97,12 @@ class WeatherJSONModel
         $location = $coords["lat"] . ',' . $coords["long"];
 
         // Initialize CURL:
-        $curlHeader = curl_init('https://api.darksky.net/forecast/'.$this->apikey2.'/'.$location.'?exclude=minutely,hourly,currently,alerts,flags&extend=daily&lang=sv&units=ca');
-        curl_setopt($curlHeader, CURLOPT_RETURNTRANSFER, true);
+        $ch = curl_init('https://api.darksky.net/forecast/'.$this->apikey2.'/'.$location.'?exclude=minutely,hourly,currently,alerts,flags&extend=daily&lang=sv&units=ca');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
         // Store the data:
-        $json = curl_exec($curlHeader);
-        curl_close($curlHeader);
+        $json = curl_exec($ch);
+        curl_close($ch);
 
         // Decode JSON response:
         $apiResult = json_decode($json, true);
@@ -135,16 +135,16 @@ class WeatherJSONModel
         $handles = [];
         $json = [];
         foreach ($urls as $url) {
-            $curlHeader = curl_init($url);
-            curl_setopt($curlHeader, CURLOPT_RETURNTRANSFER, true);
-            curl_multi_add_handle($mCurl, $curlHeader);
-            $handles[$url] = $curlHeader;
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_multi_add_handle($mCurl, $ch);
+            $handles[$url] = $ch;
         }
         $this->startMultiCurl($mCurl);
-        foreach ($handles as $curlHeaderchannel) {
-            $html = curl_multi_getcontent($curlHeaderchannel);
+        foreach ($handles as $channel) {
+            $html = curl_multi_getcontent($channel);
             $json[] = json_decode($html, true);
-            curl_multi_remove_handle($mCurl, $curlHeaderchannel);
+            curl_multi_remove_handle($mCurl, $channel);
         }
         curl_multi_close($mCurl);
         return $json;
