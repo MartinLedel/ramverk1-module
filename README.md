@@ -8,6 +8,8 @@ Anax weather-module server
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/MartinLedel/ramverk1-module/?branch=master)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c702bccb174a44e7800f444e91fe157b)](https://www.codacy.com/manual/MartinLedel/ramverk1-module?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MartinLedel/ramverk1-module&amp;utm_campaign=Badge_Grade)
+
 Install as Anax module
 ------------------------------------
 
